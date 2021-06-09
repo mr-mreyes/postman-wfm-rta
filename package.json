@@ -1,0 +1,15 @@
+{
+  "name": "cxengage-qe-wfm-rta", 
+  "version": "1.0.0",
+  "description": "Project for storing postman tests",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "api-tests-qe": "newman run tests/wfm-rta.json"
+  },
+  "author": "Manuel Reyes",
+  "dependencies": {
+    "newman": "^3.5.2"
+  }
+}
