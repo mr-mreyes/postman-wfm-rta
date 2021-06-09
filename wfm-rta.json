@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "d78edd6d-2450-4f1f-a4c9-3a712a3dfe1c",
+		"name": "wfm-rta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "wfm-dynamic-requests",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resp = pm.response.json();\r",
+							"if (responseCode.code === 200){\r",
+							"    pm.test(`${data.test}`, function (){\r",
+							"        pm.expect(responseCode.code).to.eql(200);\r",
+							"    });\r",
+							"    pm.test(`Parameters: start:'${data.start}', end:'${data.end}'`, function (){\r",
+							"        pm.expect(responseCode.code).to.eql(200);\r",
+							"    });\r",
+							"    pm.test(`Results: \"${JSON.stringify(resp.results[0])}\"`, function (){\r",
+							"        pm.expect(JSON.stringify(resp.results[0])).to.be.a('string');\r",
+							"    });\r",
+							"    \r",
+							"} else {\r",
+							"    if (responseCode.code === 400){\r",
+							"        pm.test(`${data.test}'`, function () {\r",
+							"            pm.expect(responseCode.code).to.eql(400);\r",
+							"        });\r",
+							"        pm.test(`Parameters: start:'${data.start}', end:'${data.end}'`, function (){\r",
+							"            pm.expect(responseCode.code).to.eql(400);\r",
+							"        });\r",
+							"        pm.test(`Results: \"${data.errorMessage}\"`, function (){\r",
+							"            pm.expect(resp.error).to.eql(data.errorMessage);\r",
+							"        });\r",
+							"    }\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "7mAh60Q#!@vs",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mreyes@lifesize.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://qe-api.cxengagelabs.net/v1/tenants/4e151040-2f4d-11e7-9873-1b92cd79a0c3/wfm/intervals/queue?entryType=ivr&start={{start}}&end={{end}}",
+					"protocol": "https",
+					"host": [
+						"qe-api",
+						"cxengagelabs",
+						"net"
+					],
+					"path": [
+						"v1",
+						"tenants",
+						"4e151040-2f4d-11e7-9873-1b92cd79a0c3",
+						"wfm",
+						"intervals",
+						"queue"
+					],
+					"query": [
+						{
+							"key": "entryType",
+							"value": "ivr"
+						},
+						{
+							"key": "start",
+							"value": "{{start}}"
+						},
+						{
+							"key": "end",
+							"value": "{{end}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rta-dynamic-requests",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resp = pm.response.json();\r",
+							"if (responseCode.code === 200){\r",
+							"    pm.test(`${data.test1}`, function (){\r",
+							"        pm.expect(responseCode.code).to.eql(200);\r",
+							"    });\r",
+							"    pm.test(`Parameters: start:'${data.start1}', end:'${data.end1}'`, function (){\r",
+							"        pm.expect(responseCode.code).to.eql(200);\r",
+							"    });\r",
+							"    pm.test(`Results: \"${JSON.stringify(resp.results[0])}\"`, function (){\r",
+							"        pm.expect(JSON.stringify(resp.results[0])).to.be.a('string');\r",
+							"    });\r",
+							"    \r",
+							"} else {\r",
+							"    if (responseCode.code === 400){\r",
+							"        pm.test(`${data.test1}'`, function () {\r",
+							"            pm.expect(responseCode.code).to.eql(400);\r",
+							"        });\r",
+							"        pm.test(`Parameters: start:'${data.start1}', end:'${data.end1}'`, function (){\r",
+							"            pm.expect(responseCode.code).to.eql(400);\r",
+							"        });\r",
+							"        pm.test(`Results: \"${data.errorMessage1}\"`, function (){\r",
+							"            pm.expect(resp.error).to.eql(data.errorMessage1);\r",
+							"        });\r",
+							"    }\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "7mAh60Q#!@vs",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mreyes@lifesize.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://qe-api.cxengagelabs.net/v1/tenants/4e151040-2f4d-11e7-9873-1b92cd79a0c3/wfm/rta?start={{start1}}&page=0&expand-rta=false&end={{end1}}",
+					"protocol": "https",
+					"host": [
+						"qe-api",
+						"cxengagelabs",
+						"net"
+					],
+					"path": [
+						"v1",
+						"tenants",
+						"4e151040-2f4d-11e7-9873-1b92cd79a0c3",
+						"wfm",
+						"rta"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "{{start1}}"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "expand-rta",
+							"value": "false"
+						},
+						{
+							"key": "end",
+							"value": "{{end1}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

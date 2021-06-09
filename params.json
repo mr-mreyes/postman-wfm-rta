@@ -1,0 +1,60 @@
+[
+  {
+    "test": "Get Queue Interval data setting the 'start' and 'end' parameters with an interval greater than '604800000' milliseconds.",
+	"test1": "Get Queue Interval data setting the 'start' and 'end' parameters with an interval greater than '86400000' milliseconds.",
+    "start": "2021-05-27T23:45:00",
+	"start1": "2021-06-01 12:00:00",
+    "end": "2021-06-04T00:00:00",
+	"end1": "2021-06-02 12:00:01",
+    "errorMessage": "start and end cannot have an interval greater than 604800000 millliseconds.",
+    "errorMessage1": "start and end cannot have an interval greater than 86400000 millliseconds."
+  },
+  {
+    "test": "Get Queue Interval data setting the 'start' and 'end' parameters with an interval equal to 604800000 milliseconds.",
+	"test1": "Get Queue Interval data setting the 'start' and 'end' parameters with an interval equal to 86400000 milliseconds.",
+    "start": "2021-05-28T12:00:00",
+	"start1": "2021-05-25 12:00:00",
+    "end": "2021-06-04T00:00:00",
+    "end1": "2021-05-26 12:00:00"
+  },
+  {
+    "test": "Get Queue Interval data setting only the 'start' parameter",
+	"test1": "Get Queue Interval data setting only the 'start' parameter",
+    "start": "2021-06-04T12:00:00",
+	"start1": "2021-05-25 12:00:00",
+    "end": "",
+	"end1": "",
+    "errorMessage": "data is still processing, please try again later.",
+    "errorMessage1": "data is still processing, please try again later."
+  },
+  {
+    "test": "Get Queue Interval data setting the 'start' and 'end' parameters with a 'end' date greater than the current date.",
+	"test1": "Get Queue Interval data setting the 'start' and 'end' parameters with a 'end' date greater than the current date.",
+    "start": "2021-06-02T12:00:00",
+	"start1": "2021-06-08 12:00:00",
+    "end": "2021-06-10T00:00:00",
+	"end1": "2021-06-09 12:00:01",
+    "errorMessage": "end cannot be in the future.",
+	"errorMessage1": "end cannot be in the future."
+  },
+  {
+    "test": "Get Queue Interval data setting only the 'end' parameter",
+	"test1": "Get Queue Interval data setting only the 'end' Parameter",
+    "start": "",
+	"start1": "",
+    "end": "2021-06-04T00:00:00",
+	"end1": "2021-06-05 12:00:00",
+    "errorMessage": "start is a required parameter.",
+    "errorMessage1": "start is a required parameter."
+  },
+  {
+    "test": "Get Queue Interval data setting only the 'start' parameter with a very old 'start' date",
+	"test1": "Get Queue Interval data setting only the 'start' parameter with a very old 'start' date",
+    "start": "2017-05-01T12:00:00",
+	"start1": "2011-06-06 12:00:00",
+    "end": "",
+	"end1": "",
+    "errorMessage": "start and end cannot have an interval greater than 604800000 millliseconds.",
+	"errorMessage1": "data is still processing, please try again later."
+  }
+]
